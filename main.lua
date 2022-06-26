@@ -124,7 +124,7 @@ function love.draw()
     end
 end
 
-function love.mousepressed( x, y, button )
+function love.mousepressed( x, y, button, istouch, presses )
         if button == 1 and gameState == 2 then
             spawnBullet()
         elseif button == 1 and gameState == 1 then
