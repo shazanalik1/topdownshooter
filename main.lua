@@ -48,7 +48,7 @@ function love.update(dt)
             for i,z in ipairs(zombies) do
                 zombies[i] = nil
                 life = life - 1
-                if life == 0 then
+                if life <= 0 or life <= -1 then
                     gameState = 1
                 end       
                 player.x = love.graphics.getWidth()/2
@@ -127,6 +127,9 @@ end
 function love.mousepressed( x, y, button, istouch, presses )
         if button == 1 and gameState == 2 then
             spawnBullet()
+        elseif button == 2 and gameState == 2 then
+            spawnBullet()
+            score = score - 1
         elseif button == 1 and gameState == 1 then
             gameState = 2
             maxTime = 2
